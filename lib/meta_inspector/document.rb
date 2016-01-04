@@ -49,7 +49,7 @@ module MetaInspector
               :description, :links,
               :images, :feed, :charset, :meta_tags,
               :meta_tag, :meta, :favicon,
-              :head_links, :stylesheets, :canonicals] => :@parser
+              :head_links, :stylesheets, :canonicals, :google_analytics] => :@parser
 
     # Returns all document data as a nested Hash
     def to_hash
@@ -60,6 +60,7 @@ module MetaInspector
         'root_url'      => root_url,
         'title'         => title,
         'best_title'    => best_title,
+        'google_analytics' => google_analytics,
         'description'   => description,
         'links'         => links.to_hash,
         'images'        => images.to_a,

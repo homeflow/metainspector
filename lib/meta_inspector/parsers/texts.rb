@@ -21,6 +21,9 @@ module MetaInspector
         meta['description'] || secondary_description
       end
 
+      def google_analytics
+        @google_analytics ||= parsed.css('script').inner_text.slice(/((?:UA-).[0-9]+.\-[0-9]+)/) rescue nil
+      end
       private
 
       # Look for candidates and pick the longest one

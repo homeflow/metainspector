@@ -29,12 +29,12 @@ module MetaInspector
 
       # Returns all internal HTTP links found
       def internal
-        @internal ||= http.select { |link| URL.new(link).host.match(host) }
+        @internal ||= http.select { |link| URL.new(link).host.match(host.sub(/^www\./, '')) }
       end
 
       # Returns all external HTTP links found
       def external
-        @external ||= http.select { |link| !URL.new(link).host.match(host) }
+        @external ||= http.select { |link| !URL.new(link).host.match(host.sub(/^www\./, '')) }
       end
 
       def to_hash
